@@ -1,0 +1,11 @@
+{
+  "domain": "osoenergy_community",
+  "name": "OSO Energy HACS",
+  "codeowners": ["@osohotwateriot"],
+  "config_flow": true,
+  "documentation": "https://github.com/osohotwateriot/osoenergy_community",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/osohotwateriot/osoenergy_community/issues",
+  "requirements": ["pyosoenergyapi==1.0.5"],
+  "version": "1.0.0"
+}

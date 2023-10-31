@@ -1,0 +1,7 @@
+{
+    "name": "OSO Energy HACS",
+    "content_in_root": false,
+    "country": "NO",
+    "homeassistant": "2023.10.0b0",
+    "render_readme": true
+}
