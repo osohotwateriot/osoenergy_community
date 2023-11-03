@@ -27,6 +27,26 @@
     }
   },
   "entity": {
+    "sensor": {
+      "power_save": {
+        "name": "Power save"
+      },
+      "extra_energy": {
+        "name": "Extra energy"
+      },
+      "power_load": {
+        "name": "Power load"
+      },
+      "tapping_capacity_kwh": {
+        "name": "Tapping capacity kWh"
+      },
+      "capacity_mixed_water_40": {
+        "name": "Capacity mixed water 40°C"
+      },
+      "v40_min": {
+        "name": "V40 min"
+      }
+    },
     "water_heater": {
       "saga_heater": {
         "state_attributes": {

@@ -1,11 +1,47 @@
 # OSO Energy Community
 
 ![Last release](https://img.shields.io/github/release-date/osohotwateriot/osoenergy_community?style=flat-square)
+![Version](https://img.shields.io/github/v/release/osohotwateriot/osoenergy_community
+)
 ![Code size](https://img.shields.io/github/languages/code-size/osohotwateriot/osoenergy_community?style=flat-square)
 
 The OSO Energy Community custom integration allows you to interact with supported devices and services offered by [OSO Energy](https://www.osoenergy.no)
 
-This OSO Energy Community custom integration uses a subscription key, which a user can create for his account on the [OSO Energy website](https://portal.osoenergy.no/), to configure it within Home Assistant. Once configured Home Assistant will detect and add all OSO Energy devices.
+This OSO Energy Community custom integration uses a subscription key, which users can create for their accounts on the [OSO Energy website](https://portal.osoenergy.no/), to configure it within Home Assistant. Once configured Home Assistant will detect and add all OSO Energy devices.
+
+## Installation
+
+### Manual installation
+
+Download the `osoenergy_community` folder and all of it's contents from the [repository](https://github.com/osohotwateriot/osoenergy_community) and copy it to your Home Assistant's `/config/custom_components` folder. Create the `custom_components` folder it it does not exist.
+Restart Home Assistant.
+
+### HACS installation
+
+Search for the `OSO Energy HACS` integration and download it.
+Restart Home Assistant.
+
+### Custom repoditory installation
+
+If you don't see the OSO Energy Community integration in HACS you can add it as a custom repository:
+
+* Navigate to `HACS` and click on the three dots in the top right corner.
+* Select `Custom repositories`
+* Fill `osohotwateriot/osoenergy_community` for repository and select `Integration` for category
+* Click on `ADD`
+
+After executing the steps above the integration should appear on your HACS page and you can download it.
+Restart Home Assistant.
+
+### Add the integration
+
+To add devices execute the following steps:
+
+* Navigate to `Settings` &rarr; `Devices and services` &rarr; `+ ADD INTEGRATION`
+* Search for `OSO Energy HACS` and select it
+* Enter the generated subscription key for your account
+
+For multiple accounts execute the steps above again.
 
 ## Services
 
@@ -149,10 +185,23 @@ script:
 
 ## Platforms
 
+### Sensor
+
+The `osoenergy` sensor integration exposes OSO Energy data as a sensor.
+
+The platform exposes the following sensors:
+
+* Power Save status for water heaters.
+* Extra Energy status for water heaters.
+* Power load (kW) for water heaters.
+* Tapping capacity (kWh) for water heaters.
+* Capacity mixed water at 40°C (L) for water heaters.
+* V40 Min (L) for water heaters.
+
 ### Water Heater
 
 The `osoenergy_community` water heater platform integrates your OSO Energy devices into Home Assistant.
 
 The platform supports the following OSO Energy devices:
 
-- Water Heaters
+* Water Heaters
