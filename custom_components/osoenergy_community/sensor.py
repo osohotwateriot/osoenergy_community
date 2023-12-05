@@ -125,6 +125,13 @@ SENSOR_TYPES: tuple[OSOEnergySensorEntityDescription, ...] = (
         native_unit_of_measurement=UnitOfVolume.LITERS,
         value=lambda device: device.state,
     ),
+    OSOEnergySensorEntityDescription(
+        key="volume",
+        translation_key="volume",
+        device_class=SensorDeviceClass.VOLUME,
+        native_unit_of_measurement=UnitOfVolume.LITERS,
+        value=lambda device: device.state,
+    ),
 )
 
 
