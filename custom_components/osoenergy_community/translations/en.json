@@ -27,13 +27,18 @@
     }
   },
   "entity": {
-    "sensor": {
+    "binary_sensor": {
       "power_save": {
         "name": "Power save"
       },
       "extra_energy": {
         "name": "Extra energy"
       },
+      "heater_state": {
+        "name": "Heater state"
+      }
+    },
+    "sensor": {
       "power_load": {
         "name": "Power load"
       },
@@ -44,55 +49,39 @@
         "name": "Capacity mixed water 40°C"
       },
       "v40_min": {
-        "name": "V40 min"
-      }
-    },
-    "water_heater": {
-      "saga_heater": {
-        "state_attributes": {
-          "heater_mode": {
-            "name": "Heater mode",
-            "state": {
-              "auto": "Auto",
-              "extra_energy": "Extra Energy",
-              "ffr": "FFR",
-              "legionella": "Legionella",
-              "manual": "Manual",
-              "off": "Off",
-              "power_save": "Power Save",
-              "voltage": "Voltage"
-            }
-          },
-          "heater_state": {
-            "name": "Heater state",
-            "state": {
-              "off": "Off",
-              "on": "On"
-            }
-          },
-          "optimization_mode": {
-            "name": "Optimization mode",
-            "state": {
-              "advanced": "Advanced",
-              "grid_company": "Grid Company",
-              "off": "Off",
-              "oso": "OSO",
-              "smart_company": "Smart Company"
-            }
-          },
-          "profile": {
-            "name": "Profile"
-          },
-          "v40_level_max": {
-            "name": "Maximum level of mixed Water at 40\u00b0C"
-          },
-          "v40_level_min": {
-            "name": "Minimum level of mixed water at 40\u00b0C"
-          },
-          "v40_min": {
-            "name": "Mixed water at 40\u00b0C"
-          }
+        "name": "Mixed water at 40\u00b0C"
+      },
+      "v40_level_min": {
+        "name": "Minimum level of mixed water at 40\u00b0C"
+      },
+      "v40_level_max": {
+        "name": "Maximum level of mixed water at 40\u00b0C"
+      },
+      "heater_mode": {
+        "name": "Heater mode",
+        "state": {
+          "auto": "Auto",
+          "extra_energy": "Extra Energy",
+          "ffr": "FFR",
+          "legionella": "Legionella",
+          "manual": "Manual",
+          "off": "Off",
+          "power_save": "Power Save",
+          "voltage": "Voltage"
         }
+      },
+      "optimization_mode": {
+        "name": "Optimization mode",
+        "state": {
+          "advanced": "Advanced",
+          "grid_company": "Grid Company",
+          "off": "Off",
+          "oso": "OSO",
+          "smart_company": "Smart Company"
+        }
+      },
+      "profile": {
+        "name": "Profile local"
       }
     }
   },
