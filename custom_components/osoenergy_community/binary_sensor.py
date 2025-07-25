@@ -1,8 +1,9 @@
 """Support for OSO Energy binary sensors."""
-from apyosoenergyapi import OSOEnergy
-from apyosoenergyapi.helper.const import OSOEnergyBinarySensorData
 from collections.abc import Callable
 from dataclasses import dataclass
+
+from apyosoenergyapi import OSOEnergy
+from apyosoenergyapi.helper.const import OSOEnergyBinarySensorData
 
 from homeassistant.components.binary_sensor import (
     BinarySensorEntity,

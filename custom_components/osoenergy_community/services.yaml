@@ -255,3 +255,22 @@ set_profile:
           max: 75
           step: 1
           unit_of_measurement: °C
+enable_holiday_mode:
+  target:
+    entity:
+      domain: water_heater
+  fields:
+    duration_days:
+      required: false
+      default: 1
+      example: 7
+      selector:
+        number:
+          min: 1
+          max: 365
+          step: 1
+          unit_of_measurement: days
+disable_holiday_mode:
+  target:
+    entity:
+      domain: water_heater

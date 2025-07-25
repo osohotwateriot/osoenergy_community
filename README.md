@@ -45,6 +45,49 @@ For multiple accounts execute the steps above again.
 
 ## Services
 
+### Service `osoenergy_community.disable_holiday_mode`
+
+You can use the service `osoenergy_community.disable_holiday_mode` to disable Holiday Mode for a water heater.
+
+| Service data attribute | Optional | Description                                        |
+| ---------------------- | -------- | -------------------------------------------------- |
+| `entity_id`            | no       | String, name of entity. For example: `water_heater.heater` |
+
+Example:
+
+```yaml
+# Example script to enable Holiday Mode for a water heater.
+script:
+  disable_holiday_mode:
+    sequence:
+      - service: osoenergy_community.disable_holiday_mode
+        target:
+          entity_id: water_heater.heater
+```
+
+### Service `osoenergy_community.enable_holiday_mode`
+
+You can use the service `osoenergy_community.enable_holiday_mode` to enable Holiday Mode for a water heater for a period of time in the range from 1 to 365 days.
+
+| Service data attribute | Optional | Description                                        |
+| ---------------------- | -------- | -------------------------------------------------- |
+| `entity_id`            | no       | String, name of entity. For example: `water_heater.heater` |
+| `duration_days`        | yes      | Number of days to keep Holiday Mode active (1-365). Default: `365` |
+
+Example:
+
+```yaml
+# Example script to enable Holiday Mode for a water heater.
+script:
+  enable_holiday_mode:
+    sequence:
+      - service: osoenergy_community.enable_holiday_mode
+        target:
+          entity_id: water_heater.heater
+        data:
+          duration_days: 7
+```
+
 ### Service `osoenergy_community.turn_on`
 
 You can use the service `osoenergy_community.turn_on` to turn on the heating on your device for one hour or until the maximum temperature is reached.

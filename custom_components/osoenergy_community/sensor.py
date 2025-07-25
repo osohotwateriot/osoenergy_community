@@ -1,9 +1,11 @@
 """Support for OSO Energy sensors."""
-from apyosoenergyapi import OSOEnergy
-from apyosoenergyapi.helper.const import OSOEnergySensorData
+
 from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
+
+from apyosoenergyapi import OSOEnergy
+from apyosoenergyapi.helper.const import OSOEnergySensorData
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -12,9 +14,8 @@ from homeassistant.components.sensor import (
     SensorStateClass,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import UnitOfPower, UnitOfEnergy, UnitOfVolume
+from homeassistant.const import UnitOfEnergy, UnitOfPower, UnitOfVolume
 from homeassistant.core import HomeAssistant
-from homeassistant.helpers.entity import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
 import homeassistant.util.dt as dt_util

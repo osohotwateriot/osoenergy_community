@@ -1,8 +1,9 @@
 """Support for OSO Energy water heaters."""
-from apyosoenergyapi import OSOEnergy
-from apyosoenergyapi.helper.const import OSOEnergyWaterHeaterData
+
 from typing import Any
 
+from apyosoenergyapi import OSOEnergy
+from apyosoenergyapi.helper.const import OSOEnergyWaterHeaterData
 import voluptuous as vol
 
 from homeassistant.components.water_heater import (
@@ -23,6 +24,7 @@ import homeassistant.util.dt as dt_util
 from . import OSOEnergyEntity
 from .const import DOMAIN
 
+ATTR_DURATION_DAYS = "duration_days"
 ATTR_UNTIL_TEMP_LIMIT = "until_temp_limit"
 ATTR_V40MIN = "v40_min"
 CURRENT_OPERATION_MAP: dict[str, Any] = {
@@ -42,6 +44,8 @@ SERVICE_TURN_ON = "turn_on"
 SERVICE_TURN_OFF = "turn_off"
 SERVICE_SET_V40MIN = "set_v40_min"
 SERVICE_SET_PROFILE = "set_profile"
+SERVICE_ENABLE_HOLIDAY_MODE = "enable_holiday_mode"
+SERVICE_DISABLE_HOLIDAY_MODE = "disable_holiday_mode"
 
 
 async def async_setup_entry(
@@ -90,6 +94,22 @@ async def async_setup_entry(
         SERVICE_SET_PROFILE,
         service_set_profile_schema,
         "async_set_profile",
+    )
+
+    platform.async_register_entity_service(
+        SERVICE_ENABLE_HOLIDAY_MODE,
+        {
+            vol.Optional(ATTR_DURATION_DAYS): vol.All(
+                cv.positive_int, vol.Range(min=1, max=365)
+            )
+        },
+        "async_enable_holiday_mode",
+    )
+
+    platform.async_register_entity_service(
+        SERVICE_DISABLE_HOLIDAY_MODE,
+        {},
+        "async_disable_holiday_mode",
     )
 
 
@@ -208,6 +228,17 @@ class OSOEnergyWaterHeater(
                 profile[_get_utc_hour(hour)] = kwargs[hour_key]
 
         await self.osoenergy.hotwater.set_profile(self.device, profile)
+
+    async def async_enable_holiday_mode(self, duration_days: int | None = None) -> None:
+        """Enable holiday mode."""
+        if duration_days is None:
+            duration_days = 365
+
+        await self.osoenergy.hotwater.enable_holiday_mode(self.device, duration_days)
+
+    async def async_disable_holiday_mode(self) -> None:
+        """Disable holiday mode."""
+        await self.osoenergy.hotwater.disable_holiday_mode(self.device)
 
     async def async_update(self) -> None:
         """Update all Node data from Hive."""
