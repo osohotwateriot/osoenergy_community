@@ -7,13 +7,13 @@ from typing import Any
 from apyosoenergyapi import OSOEnergy
 from apyosoenergyapi.helper.const import OSOEnergySwitchData
 
-from config.custom_components.osoenergy_community import OSOEnergyEntity
 from homeassistant.components.switch import SwitchEntity, SwitchEntityDescription
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.typing import StateType
 
+from . import OSOEnergyEntity
 from .const import DOMAIN
 
 
