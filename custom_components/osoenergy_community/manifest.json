@@ -9,7 +9,7 @@
   "iot_class": "cloud_polling",
   "issue_tracker": "https://github.com/osohotwateriot/osoenergy_community/issues",
   "requirements": [
-    "pyosoenergyapi==1.2.3"
+    "pyosoenergyapi==1.2.4"
   ],
-  "version": "1.2.1"
+  "version": "1.2.2"
 }
